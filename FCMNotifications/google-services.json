@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "669399277073",
+    "firebase_url": "https://fcmnotifications-fd087.firebaseio.com",
+    "project_id": "fcmnotifications-fd087",
+    "storage_bucket": "fcmnotifications-fd087.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669399277073:android:cf5b755c435f2444605bb0",
+        "android_client_info": {
+          "package_name": "com.factmes.coever_kcb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669399277073-jh8css6asj804a767v076bm0n2rpkfef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTH0hh-xpAI-r-ZFZ3LZR8wMDcimbuF6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669399277073-jh8css6asj804a767v076bm0n2rpkfef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

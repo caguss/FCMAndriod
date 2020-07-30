@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:minWidth="25px"
+	android:minHeight="25px"
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent"
+	android:id="@+id/scrollView1" >
+
+
+<RelativeLayout
+	android:layout_width="wrap_content"
+	android:layout_height="match_parent"
+	android:id="@+id/relativeLayout"
+		
+	android:minWidth="25px"
+	android:minHeight="25px">
+	
+	<Space
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/space1"
+
+		android:layout_marginBottom="30dp"/>
+	<TextView
+		android:text="알람 이력 "
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:textStyle="bold"
+		android:id="@+id/textView1"
+		android:foregroundGravity="center_vertical|center"
+		android:gravity="center_vertical|center"
+		android:layout_below="@id/space1"/>
+	<Space
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/space2"
+			android:layout_below="@id/textView1"
+		android:layout_marginBottom="10dp" />
+		<ListView
+			android:minWidth="25px"
+			android:minHeight="25px"
+			android:layout_width="wrap_content"
+			android:layout_height="930dp"
+			android:layout_below="@id/space2"
+			android:id="@+id/listView1"
+		/>
+
+	</RelativeLayout>
+</ScrollView>
