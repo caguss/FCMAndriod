@@ -102,6 +102,22 @@
 			android:layout_height="70dp"
 			android:id="@+id/btnLogin"
 			android:layout_below="@id/space4" />
+
+		<Spinner  
+		android:id="@+id/spinner"  
+		android:layout_width="fill_parent"  
+		android:layout_height="wrap_content"  
+		android:spinnerMode="dialog"
+		android:prompt="@string/country_prompt"
+		android:layout_below="@id/btnLogin"/>
+
+		<Spinner
+		android:layout_marginTop="15dp"
+		android:id="@+id/spinner2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/spinner"/>
+
 	<TextView
 		android:text=""
 		android:layout_width="wrap_content"
@@ -109,7 +125,7 @@
 		android:id="@+id/msgText"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:padding="10dp" 
-		android:layout_below="@id/btnLogin"/>
+		android:layout_below="@id/spinner2"/>
 	<Button
 		android:id="@+id/logTokenButton"
 		android:layout_width="match_parent"

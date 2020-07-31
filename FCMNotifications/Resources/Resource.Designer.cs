@@ -2211,6 +2211,22 @@ namespace FCMNotifications
 			}
 		}
 		
+		public partial class Array
+		{
+			
+			// aapt resource value: 0x7f0e0000
+			public const int country_array = 2131623936;
+			
+			static Array()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Array()
+			{
+			}
+		}
+		
 		public partial class Attribute
 		{
 			
@@ -4610,8 +4626,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c003f
 			public const int SYM = 2131492927;
 			
-			// aapt resource value: 0x7f0c00b9
-			public const int action0 = 2131493049;
+			// aapt resource value: 0x7f0c00bb
+			public const int action0 = 2131493051;
 			
 			// aapt resource value: 0x7f0c0083
 			public const int action_bar = 2131492995;
@@ -4634,17 +4650,17 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0061
 			public const int action_bar_title = 2131492961;
 			
-			// aapt resource value: 0x7f0c00b6
-			public const int action_container = 2131493046;
+			// aapt resource value: 0x7f0c00b8
+			public const int action_container = 2131493048;
 			
 			// aapt resource value: 0x7f0c0084
 			public const int action_context_bar = 2131492996;
 			
-			// aapt resource value: 0x7f0c00bd
-			public const int action_divider = 2131493053;
+			// aapt resource value: 0x7f0c00bf
+			public const int action_divider = 2131493055;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int action_image = 2131493047;
+			// aapt resource value: 0x7f0c00b9
+			public const int action_image = 2131493049;
 			
 			// aapt resource value: 0x7f0c0003
 			public const int action_menu_divider = 2131492867;
@@ -4661,11 +4677,11 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0063
 			public const int action_mode_close_button = 2131492963;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int action_text = 2131493048;
+			// aapt resource value: 0x7f0c00ba
+			public const int action_text = 2131493050;
 			
-			// aapt resource value: 0x7f0c00c6
-			public const int actions = 2131493062;
+			// aapt resource value: 0x7f0c00c8
+			public const int actions = 2131493064;
 			
 			// aapt resource value: 0x7f0c0064
 			public const int activity_chooser_view_content = 2131492964;
@@ -4715,8 +4731,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c006a
 			public const int buttonPanel = 2131492970;
 			
-			// aapt resource value: 0x7f0c00ba
-			public const int cancel_action = 2131493050;
+			// aapt resource value: 0x7f0c00bc
+			public const int cancel_action = 2131493052;
 			
 			// aapt resource value: 0x7f0c004c
 			public const int center = 2131492940;
@@ -4733,8 +4749,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c007a
 			public const int checkbox = 2131492986;
 			
-			// aapt resource value: 0x7f0c00c2
-			public const int chronometer = 2131493058;
+			// aapt resource value: 0x7f0c00c4
+			public const int chronometer = 2131493060;
 			
 			// aapt resource value: 0x7f0c0055
 			public const int clip_horizontal = 2131492949;
@@ -4793,8 +4809,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0038
 			public const int end = 2131492920;
 			
-			// aapt resource value: 0x7f0c00c8
-			public const int end_padder = 2131493064;
+			// aapt resource value: 0x7f0c00ca
+			public const int end_padder = 2131493066;
 			
 			// aapt resource value: 0x7f0c0047
 			public const int enterAlways = 2131492935;
@@ -4844,8 +4860,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0069
 			public const int icon = 2131492969;
 			
-			// aapt resource value: 0x7f0c00c7
-			public const int icon_group = 2131493063;
+			// aapt resource value: 0x7f0c00c9
+			public const int icon_group = 2131493065;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int icon_only = 2131492896;
@@ -4856,8 +4872,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0066
 			public const int image = 2131492966;
 			
-			// aapt resource value: 0x7f0c00c3
-			public const int info = 2131493059;
+			// aapt resource value: 0x7f0c00c5
+			public const int info = 2131493061;
 			
 			// aapt resource value: 0x7f0c0060
 			public const int italic = 2131492960;
@@ -4889,29 +4905,29 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0068
 			public const int list_item = 2131492968;
 			
-			// aapt resource value: 0x7f0c00b4
-			public const int logTokenButton = 2131493044;
-			
-			// aapt resource value: 0x7f0c00c9
-			public const int main_appbar = 2131493065;
+			// aapt resource value: 0x7f0c00b6
+			public const int logTokenButton = 2131493046;
 			
 			// aapt resource value: 0x7f0c00cb
-			public const int main_tablayout = 2131493067;
+			public const int main_appbar = 2131493067;
 			
-			// aapt resource value: 0x7f0c00ca
-			public const int main_toolbar = 2131493066;
+			// aapt resource value: 0x7f0c00cd
+			public const int main_tablayout = 2131493069;
 			
 			// aapt resource value: 0x7f0c00cc
-			public const int main_viewpager = 2131493068;
+			public const int main_toolbar = 2131493068;
+			
+			// aapt resource value: 0x7f0c00ce
+			public const int main_viewpager = 2131493070;
+			
+			// aapt resource value: 0x7f0c00d3
+			public const int masked = 2131493075;
+			
+			// aapt resource value: 0x7f0c00be
+			public const int media_actions = 2131493054;
 			
 			// aapt resource value: 0x7f0c00d1
-			public const int masked = 2131493073;
-			
-			// aapt resource value: 0x7f0c00bc
-			public const int media_actions = 2131493052;
-			
-			// aapt resource value: 0x7f0c00cf
-			public const int message = 2131493071;
+			public const int message = 2131493073;
 			
 			// aapt resource value: 0x7f0c0039
 			public const int middle = 2131492921;
@@ -4919,8 +4935,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c005a
 			public const int mini = 2131492954;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int msgText = 2131493043;
+			// aapt resource value: 0x7f0c00b5
+			public const int msgText = 2131493045;
 			
 			// aapt resource value: 0x7f0c0030
 			public const int multiply = 2131492912;
@@ -4937,14 +4953,14 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0027
 			public const int normal = 2131492903;
 			
-			// aapt resource value: 0x7f0c00c5
-			public const int notification_background = 2131493061;
+			// aapt resource value: 0x7f0c00c7
+			public const int notification_background = 2131493063;
 			
-			// aapt resource value: 0x7f0c00bf
-			public const int notification_main_column = 2131493055;
+			// aapt resource value: 0x7f0c00c1
+			public const int notification_main_column = 2131493057;
 			
-			// aapt resource value: 0x7f0c00be
-			public const int notification_main_column_container = 2131493054;
+			// aapt resource value: 0x7f0c00c0
+			public const int notification_main_column_container = 2131493056;
 			
 			// aapt resource value: 0x7f0c0053
 			public const int parallax = 2131492947;
@@ -4976,11 +4992,11 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0051
 			public const int right = 2131492945;
 			
-			// aapt resource value: 0x7f0c00c4
-			public const int right_icon = 2131493060;
+			// aapt resource value: 0x7f0c00c6
+			public const int right_icon = 2131493062;
 			
-			// aapt resource value: 0x7f0c00c0
-			public const int right_side = 2131493056;
+			// aapt resource value: 0x7f0c00c2
+			public const int right_side = 2131493058;
 			
 			// aapt resource value: 0x7f0c000c
 			public const int save_image_matrix = 2131492876;
@@ -5045,11 +5061,11 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0091
 			public const int select_dialog_listview = 2131493009;
 			
-			// aapt resource value: 0x7f0c00cd
-			public const int shellcontent_appbar = 2131493069;
+			// aapt resource value: 0x7f0c00cf
+			public const int shellcontent_appbar = 2131493071;
 			
-			// aapt resource value: 0x7f0c00ce
-			public const int shellcontent_toolbar = 2131493070;
+			// aapt resource value: 0x7f0c00d0
+			public const int shellcontent_toolbar = 2131493072;
 			
 			// aapt resource value: 0x7f0c007b
 			public const int shortcut = 2131492987;
@@ -5090,6 +5106,12 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c006b
 			public const int spacer = 2131492971;
 			
+			// aapt resource value: 0x7f0c00b3
+			public const int spinner = 2131493043;
+			
+			// aapt resource value: 0x7f0c00b4
+			public const int spinner2 = 2131493044;
+			
 			// aapt resource value: 0x7f0c0008
 			public const int split_action_bar = 2131492872;
 			
@@ -5108,8 +5130,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0052
 			public const int start = 2131492946;
 			
-			// aapt resource value: 0x7f0c00bb
-			public const int status_bar_latest_event_content = 2131493051;
+			// aapt resource value: 0x7f0c00bd
+			public const int status_bar_latest_event_content = 2131493053;
 			
 			// aapt resource value: 0x7f0c007d
 			public const int submenuarrow = 2131492989;
@@ -5117,8 +5139,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c008e
 			public const int submit_area = 2131493006;
 			
-			// aapt resource value: 0x7f0c00b5
-			public const int subscribeButton = 2131493045;
+			// aapt resource value: 0x7f0c00b7
+			public const int subscribeButton = 2131493047;
 			
 			// aapt resource value: 0x7f0c0028
 			public const int tabMode = 2131492904;
@@ -5156,8 +5178,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0015
 			public const int textinput_error = 2131492885;
 			
-			// aapt resource value: 0x7f0c00c1
-			public const int time = 2131493057;
+			// aapt resource value: 0x7f0c00c3
+			public const int time = 2131493059;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int title = 2131492892;
@@ -5210,8 +5232,8 @@ namespace FCMNotifications
 			// aapt resource value: 0x7f0c0016
 			public const int view_offset_helper = 2131492886;
 			
-			// aapt resource value: 0x7f0c00d0
-			public const int visible = 2131493072;
+			// aapt resource value: 0x7f0c00d2
+			public const int visible = 2131493074;
 			
 			// aapt resource value: 0x7f0c0022
 			public const int wide = 2131492898;
@@ -5644,6 +5666,9 @@ namespace FCMNotifications
 			
 			// aapt resource value: 0x7f070017
 			public const int common_signin_button_text_long = 2131165207;
+			
+			// aapt resource value: 0x7f070047
+			public const int country_prompt = 2131165255;
 			
 			// aapt resource value: 0x7f070002
 			public const int default_web_client_id = 2131165186;

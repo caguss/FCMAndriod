@@ -67,8 +67,12 @@ namespace FCMNotifications
         internal static readonly string FINISH_LABEL = "처리 완료";
 
 
-      
 
+        int requestCode = 0; 
+
+        public const string REPLY_ACTION = "com.xamarin.directreply.REPLY"; 
+        public const string KEY_TEXT_REPLY = "key_text_reply";
+        public const string REQUEST_CODE = "request_code"; 
 
         public override void OnMessageReceived(RemoteMessage message)
         {
@@ -141,6 +145,18 @@ namespace FCMNotifications
                .SetLabel("Please enter your name")
                .Build();
 
+            //background test
+            //var replyText = "최종완료우";
+            //var remoteInput_final = new Android.Support.V4.App.RemoteInput.Builder(KEY_TEXT_REPLY)
+            //                    .SetLabel(replyText)
+            //                    .Build();
+            //var action = new NotificationCompat.Action.Builder(Resource.Drawable.notification_action_background,
+            //                                       replyText,
+            //                                       pendingIntent)
+            //                                      .AddRemoteInput(remoteInput)
+            //                                      .Build();
+
+
 
             //NotificationCompat.Action action =
             //    new NotificationCompat.Action.Builder(Resource.Drawable.abc_edit_text_material,
@@ -150,22 +166,22 @@ namespace FCMNotifications
 
 
             var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID)
-                                      .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
+                                      .SetSmallIcon(Resource.Drawable.abc_edit_text_material)
                                       .SetContentTitle(messageHead)
                                       .SetContentText(messageBody)
                                       .SetAutoCancel(true)
-                                      .SetColor(Color.HoloRedDark)
+                                      //.SetColor(Color.HoloRedDark)
                                       .SetVibrate(new long[] { 100, 200, 300, 400, 500, 400, 300, 200, 400 })
                                       .SetContentIntent(pendingIntent)
                                       .AddAction(Resource.Drawable.abc_edit_text_material, GetString(Resource.String.finish), helpPendingIntent)
                                       .AddAction(Resource.Drawable.abc_edit_text_material, GetString(Resource.String.ok), pendingIntent);
 
             var notificationManager = NotificationManagerCompat.From(this);
-            int not_nu = generateRandom();
+            int not_nu = GenerateRandom();
             //notificationManager.Notify(MainActivity.NOTIFICATION_ID, notificationBuilder.Build());
             notificationManager.Notify(not_nu, notificationBuilder.Build());
         }
-        public int generateRandom()
+        public int GenerateRandom()
         {
             Random random = new Random();
             return random.Next(9999 - 1000) + 1000;
