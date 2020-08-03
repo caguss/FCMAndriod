@@ -166,7 +166,7 @@ namespace FCMNotifications
             List<System.String> list = new List<System.String>
             {
                 "서버 1",
-                "서버 2",
+                "서버 2", //추후 서버에서 불러옴
                 "서버 3"
             };
             ArrayAdapter<System.String> dataAdapter = new ArrayAdapter<System.String>(this,
@@ -198,7 +198,7 @@ namespace FCMNotifications
                 "OnClickListener : " +
                 "\nSpinner 1 : " + (spinner1.SelectedItem) +
                 "\nSpinner 2 : " + (spinner2.SelectedItem),
-            ToastLength.Short).Show();
+            ToastLength.Short).Show(); //추후 서버에서 불러옴
 
             if (ActivityCompat.ShouldShowRequestPermissionRationale(this, Manifest.Permission.WriteExternalStorage))
             {
@@ -251,12 +251,7 @@ namespace FCMNotifications
             var intent = new Intent(this, typeof(NotiActivity));
             StartActivity(intent);
 
-
-
-
             // get a writable file path
-
-
             // write the data to the writable path - now you can read and write it
         }
 

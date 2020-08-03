@@ -23,7 +23,7 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/space1"
 
-		android:layout_marginBottom="30dp"/>
+		android:layout_marginBottom="20dp"/>
 	<TextView
 		android:text="알람 이력 "
 		android:textAppearance="?android:attr/textAppearanceMedium"
@@ -33,21 +33,17 @@
 		android:id="@+id/textView1"
 		android:foregroundGravity="center_vertical|center"
 		android:gravity="center_vertical|center"
-		android:layout_below="@id/space1"/>
-	<Space
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:id="@+id/space2"
-			android:layout_below="@id/textView1"
-		android:layout_marginBottom="10dp" />
-		<ListView
-			android:minWidth="25px"
-			android:minHeight="25px"
-			android:layout_width="wrap_content"
-			android:layout_height="930dp"
-			android:layout_below="@id/space2"
-			android:id="@+id/listView1"
-		/>
+		android:layout_below="@id/space1"
+		android:layout_marginBottom="20dp"/>
 
+	<Wahid.SwipemenuListview.SwipeMenuListView
+		android:minWidth="15px"
+		android:minHeight="15px"
+		android:layout_width="match_parent"
+		android:layout_height="930dp"
+		android:layout_below="@id/textView1"
+		android:id="@+id/listView1"
+		android:dividerHeight = "20px"
+		/>
 	</RelativeLayout>
 </ScrollView>

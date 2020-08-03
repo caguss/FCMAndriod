@@ -65,6 +65,15 @@
     <Compile Include="NotificationReceiver.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SwipemenuListview\BaseSwipListAdapter.cs" />
+    <Compile Include="SwipemenuListview\Enums.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenu.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenuAdapter.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenuCreator.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenuItem.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenuLayout.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenuListView.cs" />
+    <Compile Include="SwipemenuListview\SwipeMenuView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -155,6 +164,17 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\logbox.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Mipmap\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Mipmap\phone_co.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ListTextLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
