@@ -13,37 +13,39 @@ using static Android.Resource;
 
 namespace FCMNotifications
 {
-    [Service]
-    public class PeriodicService : Service
-    {
-        public override IBinder OnBind(Intent intent)
-        {
-            return null;
-        }
-        Intent intent;
-        public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
-        {
+    //[Service]
+    //public class PeriodicService : Service
+    //{
+    //    public override IBinder OnBind(Intent intent)
+    //    {
+    //        return null;
+    //    }
+    //    Intent intent;
+    //    public override StartCommandResult OnStartCommand(Intent intent, StartCommandFlags flags, int startId)
+    //    {
 
-            intent = new Intent(this, typeof(PeriodicService));
-            StartService(intent);
+    //        intent = new Intent(this, typeof(PeriodicService));
+    //        StartService(intent);
 
-            return StartCommandResult.NotSticky;
-        }
-    }
+    //        return StartCommandResult.NotSticky;
+    //    }
+    //}
 
-    [BroadcastReceiver]
-    public class BackgroundReceiver : BroadcastReceiver
-    {
-        public override void OnReceive(Context context, Intent intent)
-        {
-            PowerManager pm = (PowerManager)context.GetSystemService(Context.PowerService);
-            PowerManager.WakeLock wakeLock = pm.NewWakeLock(WakeLockFlags.Partial, "BackgroundReceiver");
-            wakeLock.Acquire();
+    //[BroadcastReceiver]
+    //public class BackgroundReceiver : BroadcastReceiver
+    //{
+    //    public override void OnReceive(Context context, Intent intent)
+    //    {
+    //        PowerManager pm = (PowerManager)context.GetSystemService(Context.PowerService);
+    //        PowerManager.WakeLock wakeLock = pm.NewWakeLock(WakeLockFlags.Partial, "BackgroundReceiver");
+    //        wakeLock.Acquire();
+            
+
+    //        wakeLock.Release();
 
 
-            wakeLock.Release();
-        }
-    }
+    //    }
+    //}
 
     [Service]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
@@ -76,47 +78,59 @@ namespace FCMNotifications
 
         public override void OnMessageReceived(RemoteMessage message)
         {
+         
+
+
             Log.Debug(TAG, "From: " + message.From);
-
-            var body = message.GetNotification().Body;
-            var head = message.GetNotification().Title;
-            var timestamp = message.SentTime;
-            double seconds = timestamp / 1000;
-            DateTime utcConverted = new DateTime(1970, 1, 1, 9, 0, 0, DateTimeKind.Utc).AddSeconds(seconds).ToLocalTime();
-            string[] lines = null;
-
-            //알람시 logdata 에 작성
-            var directory = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
-            var filename = Path.Combine(directory.ToString(), "LogData.txt");
-
-            try // 기존 로그 데이터 불러옴
+            try
             {
-                lines = File.ReadAllLines(filename);
-            }
-            catch (Exception)
-            {
-            }
-            try // 기존 로그데이터 + 신규 로그데이터
-            {
-                using (var writer = new StreamWriter(System.IO.File.OpenWrite(filename)))
+                var body = message.Data["message"];
+                var head = message.Data["title"];
+                var timestamp = message.SentTime;
+                double seconds = timestamp / 1000;
+                DateTime utcConverted = new DateTime(1970, 1, 1, 9, 0, 0, DateTimeKind.Utc).AddSeconds(seconds).ToLocalTime();
+                string[] lines = null;
+
+
+
+                //알람시 logdata 에 작성
+                var directory = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+                var filename = Path.Combine(directory.ToString(), "LogData.txt");
+
+                try // 기존 로그 데이터 불러옴
                 {
-                    writer.WriteLine("시간 : " + utcConverted.ToString("yy/MM/dd HH:mm:ss") + "%" + "제목 : " + head + "%" + "내용 : " + body);
-
-                    for (int i = 0; i < lines.Length; i++)
+                    lines = File.ReadAllLines(filename);
+                }
+                catch (Exception)
+                {
+                }
+                try // 기존 로그데이터 + 신규 로그데이터
+                {
+                    using (var writer = new StreamWriter(System.IO.File.OpenWrite(filename)))
                     {
-                        writer.WriteLine(lines[i]);
+                        writer.WriteLine("시간 : " + utcConverted.ToString("yy/MM/dd HH:mm:ss") + "%" + "제목 : " + head + "%" + "내용 : " + body);
+
+                        for (int i = 0; i < lines.Length; i++)
+                        {
+                            writer.WriteLine(lines[i]);
+                        }
                     }
+
+                }
+                catch (Exception)
+                {
                 }
 
+
+
+                Log.Debug(TAG, "Notification Message Body: " + body);
+                SendNotification(head, body, message.Data);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+
             }
-
-
-
-            Log.Debug(TAG, "Notification Message Body: " + body);
-            SendNotification(head, body, message.Data);
+          
         }
 
         void SendNotification(string messageHead, string messageBody, IDictionary<string, string> data)
@@ -166,7 +180,7 @@ namespace FCMNotifications
 
 
             var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID)
-                                      .SetSmallIcon(Resource.Drawable.abc_edit_text_material)
+                                      .SetSmallIcon(Resource.Mipmap.copy)
                                       .SetContentTitle(messageHead)
                                       .SetContentText(messageBody)
                                       .SetAutoCancel(true)

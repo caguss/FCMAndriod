@@ -28,7 +28,7 @@ namespace FCMNotifications
 
                 //updating the notification with the input value
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, MyFirebaseMessagingService.CHANNNEL_ID)
-                        .SetSmallIcon(Resource.Drawable.abc_edit_text_material)
+                        .SetSmallIcon(Resource.Mipmap.copy)
                         .SetContentTitle("Hey Thanks, " + name);
                 NotificationManager notificationManager = (NotificationManager)context.
                         GetSystemService(Context.NotificationService);

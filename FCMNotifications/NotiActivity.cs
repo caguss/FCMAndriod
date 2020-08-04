@@ -56,7 +56,8 @@ namespace FCMNotifications
             string contact = LogData[position];
             switch (index)
             {
-                case 0:
+                //스와이프 기능 추가
+                case 0: // 처리완료
                     int type = menu.GetViewType();
                     if (menu.GetViewType() == 0)
                     {
@@ -65,7 +66,7 @@ namespace FCMNotifications
                     {
                     }
                     break;
-                case 1: // copy
+                case 1: // 확인
                     break;
             }
             return false;

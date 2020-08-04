@@ -7,20 +7,21 @@
 	<uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND" />
 	<uses-permission android:name="android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND" />
 	<application android:label="FCMNotifications">
-		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="true" />
 		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
       <receiver
             android:name=".NotificationReceiver"
             android:enabled="true"
             android:exported="true">
       </receiver>
-			<intent-filter>
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
         <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
         <action android:name="com.google.android.c2dm.intent.ACTION_SNOOZE" />
         <action android:name="com.google.android.c2dm.intent.EXTRA_NOTIFICATION_ID" />
-				<category android:name="${applicationId}" />
-			</intent-filter>
-		</receiver>
-	</application>
+        <category android:name="${applicationId}" />
+      </intent-filter>
+    </receiver>
+
+  </application>
 </manifest>
