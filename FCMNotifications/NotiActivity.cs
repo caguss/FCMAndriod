@@ -12,12 +12,16 @@ using Android.Graphics;
 using Xamarin.Essentials;
 using System.IO;
 using Android.Views;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
 namespace FCMNotifications
 {
     [Activity(Label = "FCMNotifications", MainLauncher = false, Icon = "@drawable/icon")]
     public class NotiActivity : Activity, ISwipeMenuCreator, IOnMenuItemClickListener
     {
+    
         const string TAG = "NotiActivity";
         internal static readonly string CHANNEL_ID = "my_notification_channel";
         internal static readonly int NOTIFICATION_ID = 114;
@@ -59,20 +63,29 @@ namespace FCMNotifications
                 //스와이프 기능 추가
                 case 0: // 처리완료
                     int type = menu.GetViewType();
-                    if (menu.GetViewType() == 0)
+                    if (type == 0)
                     {
+
+                        EditText userName = null;// FindViewById<EditText>(Resource.Id.txtUser);
+                        EditText userPwd = null;//FindViewById<EditText>(Resource.Id.txtPwd);
+                        var usrid = userName.Text;
+                        var usrpwd = userPwd.Text;
+
+
+                     
                     }
                     else
                     {
                     }
                     break;
                 case 1: // 확인
+                    
                     break;
             }
             return false;
         }
 
-
+        
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -133,7 +146,7 @@ namespace FCMNotifications
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
             var param = mainList.LayoutParameters;
             param.Height = PixelsToDp(57 * mainList.Count);
-            
+
 
         }
 

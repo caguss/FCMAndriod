@@ -53,20 +53,20 @@ namespace FCMNotifications
     {
 
 
-        public static readonly string NOTIFICATION_REPLY = "NotificationReply";
+        //public static readonly string NOTIFICATION_REPLY = "NotificationReply";
         public static readonly string CHANNNEL_ID = "SimplifiedCodingChannel";
         public static readonly string CHANNEL_NAME = "SimplifiedCodingChannel";
         public static readonly string CHANNEL_DESC = "This is a channel for Simplified Coding Notifications";
-        public static readonly string KEY_INTENT_MORE = "keyintentmore";
-        public static readonly string KEY_INTENT_HELP = "keyintenthelp";
-        public static readonly int REQUEST_CODE_MORE = 100;
-        public static readonly int REQUEST_CODE_HELP = 101;
+        public static readonly string KEY_INTENT_OK = "keyintentok";
+        public static readonly string KEY_INTENT_FINISH = "keyintentfinish";
+        public static readonly int REQUEST_CODE_OK = 100;
+        public static readonly int REQUEST_CODE_FINISH = 101;
 
 
 
         const string TAG = "MyFirebaseMsgService";
-        internal static readonly string FINISH_KEY = "finish";
-        internal static readonly string FINISH_LABEL = "처리 완료";
+        //internal static readonly string FINISH_KEY = "finish";
+        //internal static readonly string FINISH_LABEL = "처리 완료";
 
 
 
@@ -143,21 +143,21 @@ namespace FCMNotifications
             }
 
             //알림 내역 intent
-            var pendingIntent = PendingIntent.GetActivity(this, MainActivity.NOTIFICATION_ID, intent, PendingIntentFlags.OneShot);
+            var okpendingIntent = PendingIntent.GetActivity(this, MainActivity.NOTIFICATION_ID, intent, PendingIntentFlags.OneShot);
 
 
 
-            PendingIntent helpPendingIntent = PendingIntent.GetBroadcast(
+            PendingIntent finishPendingIntent = PendingIntent.GetBroadcast(
                this,
-               REQUEST_CODE_HELP,
+               REQUEST_CODE_FINISH,
                new Intent(this, typeof(NotificationReceiver))
-               .PutExtra(KEY_INTENT_HELP, REQUEST_CODE_HELP),
+               .PutExtra(KEY_INTENT_FINISH, REQUEST_CODE_FINISH),
                PendingIntentFlags.OneShot
              );
 
-            Android.Support.V4.App.RemoteInput remoteInput = new Android.Support.V4.App.RemoteInput.Builder(NOTIFICATION_REPLY)
-               .SetLabel("Please enter your name")
-               .Build();
+            //Android.Support.V4.App.RemoteInput remoteInput = new Android.Support.V4.App.RemoteInput.Builder(NOTIFICATION_REPLY)
+            //   .SetLabel("Please enter your name")
+            //   .Build();
 
             //background test
             //var replyText = "최종완료우";
@@ -186,9 +186,9 @@ namespace FCMNotifications
                                       .SetAutoCancel(true)
                                       //.SetColor(Color.HoloRedDark)
                                       .SetVibrate(new long[] { 100, 200, 300, 400, 500, 400, 300, 200, 400 })
-                                      .SetContentIntent(pendingIntent)
-                                      .AddAction(Resource.Drawable.abc_edit_text_material, GetString(Resource.String.finish), helpPendingIntent)
-                                      .AddAction(Resource.Drawable.abc_edit_text_material, GetString(Resource.String.ok), pendingIntent);
+                                      .SetContentIntent(okpendingIntent)
+                                      .AddAction(Resource.Drawable.abc_edit_text_material, GetString(Resource.String.finish), finishPendingIntent)
+                                      .AddAction(Resource.Drawable.abc_edit_text_material, GetString(Resource.String.ok), okpendingIntent);
 
             var notificationManager = NotificationManagerCompat.From(this);
             int not_nu = GenerateRandom();

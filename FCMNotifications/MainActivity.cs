@@ -4,22 +4,19 @@ using Android.Gms.Common;
 using Android.OS;
 using Android.Util;
 using Android.Widget;
-using System.Resources;
-using Android.Support;
 using Firebase.Iid;
 using Firebase.Messaging;
-using Android.Content.Res;
 using System.Text;
 using System;
-using System.Xml;
-using Java.IO;
 using System.IO;
 using Android;
 using Android.Views;
 using Android.Support.V4.App;
 using Android.Support.Design.Widget;
-using static Android.Resource;
 using System.Collections.Generic;
+using System.Net.Http;
+using Xamarin.Android.Net;
+using Newtonsoft.Json;
 
 namespace FCMNotifications
 {
@@ -105,7 +102,7 @@ namespace FCMNotifications
             {
 
             }
-            
+
         }
         #region test 메소드
         public bool IsPlayServicesAvailable()
@@ -141,24 +138,36 @@ namespace FCMNotifications
             }
 
             var channel = new NotificationChannel(CHANNEL_ID, "FCM Notifications", NotificationImportance.Default)
-                          {
-                              Description = "Firebase Cloud Messages appear in this channel"
-                          };
+            {
+                Description = "Firebase Cloud Messages appear in this channel"
+            };
 
-            var notificationManager = (NotificationManager) GetSystemService(NotificationService);
+            var notificationManager = (NotificationManager)GetSystemService(NotificationService);
             notificationManager.CreateNotificationChannel(channel);
         }
         #endregion
 
         #region spinner 메소드
-        public void AddItemsOnSpinner1()
+        public async void AddItemsOnSpinner1()
         {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("localhost:64408");
+            HttpResponseMessage res = await client.GetAsync("/company");
+            var result = await res.Content.ReadAsStringAsync();
+
             spinner1 = FindViewById<Spinner>(Resource.Id.spinner);
             spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(Spinner_ItemSelected);
+
+            //이거 수정
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.country_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner1.Adapter = adapter;
+
+
         }
+
+
+
 
         public void AddItemsOnSpinner2()
         {
@@ -169,6 +178,9 @@ namespace FCMNotifications
                 "서버 2", //추후 서버에서 불러옴
                 "서버 3"
             };
+
+
+
             ArrayAdapter<System.String> dataAdapter = new ArrayAdapter<System.String>(this,
                 Android.Resource.Layout.SimpleSpinnerItem, list);  //simple_spinner_item
             dataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);//simple_spinner_dropdown_item
@@ -194,10 +206,20 @@ namespace FCMNotifications
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
+
+
+
+            ///////////////////여기서 id,pw,tok send
+
+            LoginCheck();
+
+
+
+
             Toast.MakeText(this,
                 "OnClickListener : " +
-                "\nSpinner 1 : " + (spinner1.SelectedItem) +
-                "\nSpinner 2 : " + (spinner2.SelectedItem),
+                "\n기업 : : " + (spinner1.SelectedItem) +
+                "\n서버 : " + (spinner2.SelectedItem),
             ToastLength.Short).Show(); //추후 서버에서 불러옴
 
             if (ActivityCompat.ShouldShowRequestPermissionRationale(this, Manifest.Permission.WriteExternalStorage))
@@ -220,6 +242,7 @@ namespace FCMNotifications
             }
 
             ActivityCompat.RequestPermissions(this, new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage }, 114);
+
 
 
 
@@ -257,5 +280,23 @@ namespace FCMNotifications
 
         #endregion
 
+
+
+        #region servere connect
+      
+        public void SyncCompany()
+        {
+        }
+
+
+
+
+
+
+        public void LoginCheck()
+        {
+
+        }
+        #endregion
     }
 }
