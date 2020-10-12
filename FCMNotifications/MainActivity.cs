@@ -58,9 +58,9 @@ namespace FCMNotifications
             AddItemsOnSpinner1(); // spinner1 바인딩
 
             AddItemsOnSpinner2(); // spinner2 바인딩
-
+            
             AddListenerOnButton(); // 로그인버튼 이벤트 추가
-
+            
 
             #region 테스트
             /////////////////////////////////////////
@@ -148,8 +148,9 @@ namespace FCMNotifications
         #endregion
 
         #region spinner 메소드
-        public async void AddItemsOnSpinner1()
+        public void AddItemsOnSpinner1()
         {
+            /*
             var client = new HttpClient();
             client.BaseAddress = new Uri("localhost:64408");
             HttpResponseMessage res = await client.GetAsync("/company");
@@ -157,13 +158,27 @@ namespace FCMNotifications
 
             spinner1 = FindViewById<Spinner>(Resource.Id.spinner);
             spinner1.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(Spinner_ItemSelected);
-
+            */
             //이거 수정
+            spinner1 = (Spinner)FindViewById(Resource.Id.spinner);
+
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.country_array, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner1.Adapter = adapter;
+            
+            /*
+            List<System.String> list = new List<System.String>
+            {
+                "기업 1",
+                "기업 2", //추후 서버에서 불러옴
+                "기업 3"
+            };
 
-
+            //List<System.String> list1 =  Resource.String.country_prompt;
+            */
+            
+            spinner1.ItemSelected += Spinner_ItemSelected;
+            
         }
 
 
@@ -186,12 +201,13 @@ namespace FCMNotifications
             dataAdapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);//simple_spinner_dropdown_item
 
             spinner2.Adapter = dataAdapter;
+            spinner2.ItemSelected += Spinner_ItemSelected;
         }
 
         private void Spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            string toast = string.Format("기업 : {0}", spinner.GetItemAtPosition(e.Position));
+            string toast = string.Format("{0}을 선택하셨습니다.", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
         #endregion
@@ -213,15 +229,12 @@ namespace FCMNotifications
 
             LoginCheck();
 
+            
+            string toast = string.Format("기업 : " + (spinner1.SelectedItem.ToString()) + "\n서버 : " + (spinner2.SelectedItem.ToString()));
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
+            
 
-
-
-            Toast.MakeText(this,
-                "OnClickListener : " +
-                "\n기업 : : " + (spinner1.SelectedItem) +
-                "\n서버 : " + (spinner2.SelectedItem),
-            ToastLength.Short).Show(); //추후 서버에서 불러옴
-
+            
             if (ActivityCompat.ShouldShowRequestPermissionRationale(this, Manifest.Permission.WriteExternalStorage))
             {
                 // Provide an additional rationale to the user if the permission was not granted
@@ -286,6 +299,8 @@ namespace FCMNotifications
       
         public void SyncCompany()
         {
+            // 회사이름 불러올때
+
         }
 
 
@@ -295,7 +310,9 @@ namespace FCMNotifications
 
         public void LoginCheck()
         {
-
+            //회사별 db접속 후 일치하는 아이디와 비밀번호 검색 후 
+            //로그인 확인
+            //로그인한 기록 이름 저장 후 notiactivity로 넘겨야하나
         }
         #endregion
     }

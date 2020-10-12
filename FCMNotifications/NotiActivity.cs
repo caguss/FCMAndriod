@@ -27,7 +27,7 @@ namespace FCMNotifications
         internal static readonly int NOTIFICATION_ID = 114;
         string[] items;
         string[] LogData;
-        string[] setLogdata = new string[100];
+        string[] setLogdata = new string[101];
         SwipeMenuListView mainList;
 
 
@@ -121,9 +121,13 @@ namespace FCMNotifications
             else
             {
                 int isnull = 0;
-                while (setLogdata[isnull] != null)
+                while (isnull < 101)
                 {
-                    isnull++;
+                    if (setLogdata[isnull] != null)
+                    {
+                        isnull++;
+
+                    }
                 }
                 LogData = new string[isnull];
                 for (int i = 0; i < LogData.Length; i++)
