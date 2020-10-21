@@ -57,10 +57,12 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBClass.cs" />
     <Compile Include="NotiActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyFirebaseIDService.cs" />
@@ -106,6 +108,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Net.Http">
       <Version>2.2.29</Version>
+    </PackageReference>
+    <PackageReference Include="MySqlConnector">
+      <Version>1.0.1</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>

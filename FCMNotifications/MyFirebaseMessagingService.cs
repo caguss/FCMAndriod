@@ -91,8 +91,16 @@ namespace FCMNotifications
                 DateTime utcConverted = new DateTime(1970, 1, 1, 9, 0, 0, DateTimeKind.Utc).AddSeconds(seconds).ToLocalTime();
                 string[] lines = null;
 
+                try
+                {
+                    //TASK DB에 입력
+                }
+                catch (Exception)
+                {
 
-
+                    throw;
+                }
+                
                 //알람시 logdata 에 작성
                 var directory = global::Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
                 var filename = Path.Combine(directory.ToString(), "LogData.txt");
@@ -122,7 +130,7 @@ namespace FCMNotifications
                 }
 
 
-
+                 
                 Log.Debug(TAG, "Notification Message Body: " + body);
                 SendNotification(head, body, message.Data);
             }
