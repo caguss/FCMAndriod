@@ -34,7 +34,7 @@ namespace FCMNotifications
         private EditText loginPW;
         private TextView msgText;
         private CheckBox checkbox1;
-        string strconn = "Server=m.coever.co.kr;Database=test;Uid=dbmes;Pwd=dbmes1!;";
+      
 
         private Spinner spinner1, spinner2;
         private Button btnSubmit;
